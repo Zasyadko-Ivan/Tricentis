@@ -51,6 +51,10 @@ class RegisterPage(BasePage):
         messages_of_successful_registration = self.browser.find_element(*RegisterPageLocators.NOTIFICATION_OF_SUCCESSFUL_REGISTRATION).text
         assert messages_of_successful_registration == "Your registration completed", "Your registration not complete"
 
+    def should_not_be_verification_of_successful_registration(self):
+        assert self.is_not_element_present(*RegisterPageLocators.NOTIFICATION_OF_SUCCESSFUL_REGISTRATION), \
+            "'Your registration not complete' message is presented, but should not be"
+
     def should_not_be_verification_not_entered_email_already_exists(self):
         assert self.is_not_element_present(*RegisterPageLocators.NOTIFICATION_OF_EMAIL_ALREADY_EXISTS), \
             "'The specified email already exists' message is presented, but should not be"
