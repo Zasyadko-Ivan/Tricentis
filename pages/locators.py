@@ -17,3 +17,22 @@ class RegisterPageLocators():
     NOT_ENTERED_EMAIL_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div[2]/div[4]/span[2]/span')
     NOT_ENTERED_PASSWORD_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/div[2]/div[1]/span[2]/span')
     NOT_ENTERED_CONFIRM_PASSWORD_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/div[2]/div[2]/span[2]/span')
+
+
+class LoginPageLocators():
+    EMAIL_LINK = (By.XPATH, '//*[@id="Email"]')
+    PASSWORD_LINK = (By.XPATH, '//*[@id="Password"]')
+    LOGIN_BUTTON_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input')
+    MESSAGE_DOES_NOT_EXIST_USER_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/ul/li')
+    MESSAGE_INCORRECT_DATA_LINK = MESSAGE_DOES_NOT_EXIST_USER_LINK
+    MESSAGE_LOGIN_FAILED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/span')
+
+
+class ChangepasswordPageLocators():
+    OLD_PASSWORD_LINK = (By.XPATH, '//*[@id="OldPassword"]')
+    NEW_PASSWORD_LINK = (By.XPATH, '//*[@id="NewPassword"]')
+    CONFIRM_PASSWORD_LINK = (By.XPATH, '//*[@id="ConfirmNewPassword"]')
+    CHANGE_PASSWORD_BUTTON_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/input')
+    MESSAGE_NOT_MATCH_PASSWORD_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]')
+    MESSAGE_OLD_PASSWORD_DONT_MATCH_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[1]/div/ul/li')
+    PASSWORD_CHANGE_MESSAGE_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]')
