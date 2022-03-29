@@ -99,6 +99,11 @@ class RegisterPage(BasePage):
         assert self.is_not_element_present(*RegisterPageLocators.NOT_ENTERED_CONFIRM_PASSWORD_LINK), \
             "'Password is required.' message is presented, but should not be"
 
+    def should_be_a_message_about_a_password_mismatch_and_confirm_password(self):
+        messages_about_a_password_mismatch_and_confirm_password = self.browser.find_element(*RegisterPageLocators.NOT_ENTERED_CONFIRM_PASSWORD_LINK).text
+        assert messages_about_a_password_mismatch_and_confirm_password == "The password and confirmation password do not match.", "Not messages 'The password and confirmation password do not match'"
+
+
 
 
 

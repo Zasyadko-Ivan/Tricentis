@@ -34,7 +34,7 @@ def test_successful_registration_of_a_new_user_different_email(browser, email):
     confirm_password = password
     page = RegisterPage(browser, link)
     page.open()
-    page.choose_gender_male()
+    page.choose_gender_female()
     page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
     page.click_button_register()
     page.should_not_be_verification_not_entered_email_already_exists()
@@ -160,6 +160,22 @@ def test_user_registration_without_confirm_password(browser):
     page.click_button_register()
     page.verification_not_entered_confirm_password()
     page.should_not_be_verification_of_successful_registration()
+
+
+def test_user_registration_from_password_mismatch_and_confirm_password(browser):
+    browser.implicitly_wait(5)
+    f_name = "Ivan"
+    l_name = "Zasyadko"
+    email = str(time.time()) + "@fakemail.org"
+    password = "ggga!Q24"
+    confirm_password = "password"
+    page = RegisterPage(browser, link)
+    page.open()
+    page.choose_gender_male()
+    page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
+    page.click_button_register()
+    page.should_be_a_message_about_a_password_mismatch_and_confirm_password()
+
 
 
 
