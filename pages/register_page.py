@@ -53,7 +53,7 @@ class RegisterPage(BasePage):
 
     def should_not_be_verification_of_successful_registration(self):
         assert self.is_not_element_present(*RegisterPageLocators.NOTIFICATION_OF_SUCCESSFUL_REGISTRATION), \
-            "'Your registration not complete' message is presented, but should not be"
+            "'Your registration complete' message is presented, but should not be"
 
     def should_not_be_verification_not_entered_email_already_exists(self):
         assert self.is_not_element_present(*RegisterPageLocators.NOTIFICATION_OF_EMAIL_ALREADY_EXISTS), \
@@ -78,6 +78,10 @@ class RegisterPage(BasePage):
     def verification_not_entered_email(self):
         messages_of_not_entered_email = self.browser.find_element(*RegisterPageLocators.NOT_ENTERED_EMAIL_LINK).text
         assert messages_of_not_entered_email == "Email is required.", "Not messages 'Email is required.'"
+
+    def verification_wrong_email(self):
+        messages_of_not_entered_email = self.browser.find_element(*RegisterPageLocators.NOT_ENTERED_EMAIL_LINK).text
+        assert messages_of_not_entered_email == "Wrong email", "Not messages 'Wrong email'"
 
     def should_not_be_verification_not_entered_email(self):
         assert self.is_not_element_present(*RegisterPageLocators.NOT_ENTERED_EMAIL_LINK), \

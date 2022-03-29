@@ -4,9 +4,8 @@ import pytest
 
 link = 'http://demowebshop.tricentis.com/register'
 
-#pytest -v test_register_page.py
 
-
+@pytest.mark.smoke
 def test_successful_registration_of_a_new_user(browser):
     browser.implicitly_wait(5)
     f_name = "Ivan"
@@ -23,6 +22,7 @@ def test_successful_registration_of_a_new_user(browser):
     page.verification_of_successful_registration()
 
 
+@pytest.mark.regression
 @pytest.mark.parametrize('email', [str(time.time()) + "@fakemail.org",
                                   str(time.time()) + "@gmail.org",
                                   str(time.time()) + "ashfur" + "@fakemail.org"])
@@ -41,6 +41,7 @@ def test_successful_registration_of_a_new_user_different_email(browser, email):
     page.verification_of_successful_registration()
 
 
+@pytest.mark.regression
 @pytest.mark.parametrize('password', ['Super@!21',
                                   '12345fhga',
                                   'ny_naprimer_takoi_12'])
@@ -175,6 +176,45 @@ def test_user_registration_from_password_mismatch_and_confirm_password(browser):
     page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
     page.click_button_register()
     page.should_be_a_message_about_a_password_mismatch_and_confirm_password()
+
+
+@pytest.mark.regression
+@pytest.mark.parametrize('email', ["Кирилица" + "@fakemail.org",
+                                  str(time.time()) + "@нучто.нибудь",
+                                  'prostotak'
+                                  'jfjdk jh@fakemail.org'])
+def test_registration_of_a_new_user_different_not_valid_email(browser, email):
+    browser.implicitly_wait(5)
+    f_name = "Ivan"
+    l_name = "Zasyadko"
+    password = "ggga!Q24"
+    confirm_password = password
+    page = RegisterPage(browser, link)
+    page.open()
+    page.choose_gender_female()
+    page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
+    page.click_button_register()
+    page.should_not_be_verification_not_entered_email_already_exists()
+    page.verification_wrong_email()
+
+
+@pytest.mark.regression
+@pytest.mark.parametrize('password', ["Кирилицфаа",
+                                  '123  45fhga',
+                                  'jdsfjt#usdfj@t'])
+def test_registration_of_a_new_user_different_not_valid_password(browser, password):
+    browser.implicitly_wait(5)
+    f_name = "Ivan"
+    l_name = "Zasyadko"
+    email = str(time.time()) + "@fakemail.org"
+    confirm_password = password
+    page = RegisterPage(browser, link)
+    page.open()
+    page.choose_gender_male()
+    page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
+    page.click_button_register()
+    page.should_not_be_verification_not_entered_email_already_exists()
+    page.should_not_be_verification_of_successful_registration()
 
 
 
