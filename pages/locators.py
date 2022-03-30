@@ -23,8 +23,7 @@ class LoginPageLocators():
     EMAIL_LINK = (By.XPATH, '//*[@id="Email"]')
     PASSWORD_LINK = (By.XPATH, '//*[@id="Password"]')
     LOGIN_BUTTON_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input')
-    MESSAGE_DOES_NOT_EXIST_USER_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/ul/li')
-    MESSAGE_INCORRECT_DATA_LINK = MESSAGE_DOES_NOT_EXIST_USER_LINK
+    MESSAGE_DOES_NOT_LOG_IN_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/ul/li')
     MESSAGE_LOGIN_FAILED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/span')
 
 
