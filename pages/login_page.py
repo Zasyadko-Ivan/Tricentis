@@ -2,8 +2,6 @@ from .locators import LoginPageLocators
 from .base_page import BasePage
 
 
-
-
 class LoginPage(BasePage):
     def click_button_log_in(self):
         button_register = self.browser.find_element(*LoginPageLocators.LOGIN_BUTTON_LINK)
@@ -24,4 +22,8 @@ class LoginPage(BasePage):
     def verification_login_failed(self):
         assert self.is_not_element_present(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK), \
             f"'{self.browser.find_element(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK).text}' message is presented, but should not be"
+
+    def verification_email(self):
+        assert self.is_not_element_present(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK), \
+            "Please enter a valid email address."
 

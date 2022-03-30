@@ -25,7 +25,7 @@ class LoginPageLocators():
     LOGIN_BUTTON_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[5]/input')
     MESSAGE_DOES_NOT_LOG_IN_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/ul/li')
     MESSAGE_LOGIN_FAILED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[1]/div/span')
-
+    MESSAGE_NOT_VALID_EMAIL_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/div/div[2]/div[1]/div[2]/div[2]/form/div[2]/span/span')
 
 class ChangepasswordPageLocators():
     OLD_PASSWORD_LINK = (By.XPATH, '//*[@id="OldPassword"]')
