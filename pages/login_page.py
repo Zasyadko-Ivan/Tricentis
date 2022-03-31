@@ -23,7 +23,15 @@ class LoginPage(BasePage):
         assert self.is_not_element_present(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK), \
             f"'{self.browser.find_element(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK).text}' message is presented, but should not be"
 
+    def verification_non_existent_login(self):
+        messages_about_a_password_mismatch_and_confirm_password = self.browser.find_element(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK).text
+        assert messages_about_a_password_mismatch_and_confirm_password != "No customer account found", "Not messages 'No customer account found'"
+
+    def verification_non_existent_password(self):
+        messages_about_a_password_mismatch_and_confirm_password = self.browser.find_element(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK).text
+        assert messages_about_a_password_mismatch_and_confirm_password != "The credentials provided are incorrect", "Not messages 'The credentials provided are incorrect'"
+
     def verification_email(self):
-        assert self.is_not_element_present(*LoginPageLocators.MESSAGE_LOGIN_FAILED_LINK), \
+        assert self.is_not_element_present(*LoginPageLocators.MESSAGE_NOT_VALID_EMAIL_LINK), \
             "Please enter a valid email address."
 
