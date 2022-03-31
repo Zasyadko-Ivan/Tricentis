@@ -19,7 +19,7 @@ def test_successful_login(browser):
     page.verification_login_failed()
 
 @pytest.mark.register_new
-class TestUserAddToBasketFromProductPage():
+class TestCreatedUserHeLoggedIn():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
         f_name = "Ivan"
@@ -55,10 +55,11 @@ class TestUserAddToBasketFromProductPage():
         page.verification_email()
         page.verification_non_existent_password()
 
+
 def test_login_not_non_existent_email(browser):
     page = LoginPage(browser, link_log)
     page.open()
-    email = "5приве13214т234@g1mail.com"
+    email = "jfafkrjtf@gmail.com"
     password = "привет234@g1mail.com"
     page.enter_email_field(email)
     page.enter_password_field(password)
