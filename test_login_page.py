@@ -5,6 +5,7 @@ import pytest
 
 link_log = "http://demowebshop.tricentis.com/login"
 
+
 @pytest.mark.smoke
 def test_successful_login(browser):
     email = "Test_user1@user.com"
@@ -18,7 +19,7 @@ def test_successful_login(browser):
     page.verification_log_in()
     page.verification_login_failed()
 
-@pytest.mark.register_new
+
 class TestCreatedUserHeLoggedIn():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):

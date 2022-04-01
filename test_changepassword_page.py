@@ -10,7 +10,6 @@ link_log = "http://demowebshop.tricentis.com/login"
 link_reg = 'http://demowebshop.tricentis.com/register'
 
 
-@pytest.mark.register_new
 class TestCreatedUserHeLoggedIn():
     @pytest.fixture(scope="function", autouse=True)
     def setup(self, browser):
@@ -26,7 +25,6 @@ class TestCreatedUserHeLoggedIn():
         page.click_button_register()
         return email, password
 
-    @pytest.mark.register_new
     class TestLoginUser():
         @pytest.fixture(scope="function", autouse=True)
         def setup_2(self, browser, setup):
