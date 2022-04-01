@@ -19,6 +19,31 @@ class ChangepasswordPage(BasePage):
         assert self.is_not_element_present(*ChangepasswordPageLocators.PASSWORD_CHANGE_MESSAGE_LINK), \
             "'Password was changed' message is presented, but should not be"
 
+    def verification_enter_the_wrong_old_password(self):
+        messages_enter_the_wrong_old_password = self.browser.find_element(
+            *ChangepasswordPageLocators.MESSAGE_OLD_PASSWORD_DONT_MATCH_LINK).text
+        assert messages_enter_the_wrong_old_password == "Old password doesn't match", "Not messages 'Old password doesn't match'"
+
+    def verification_enter_different_passwords(self):
+        messages_different_passwords = self.browser.find_element(
+            *ChangepasswordPageLocators.MESSAGE_CONFIRM_PASSWORD_IS_REQUIRED_LINK).text
+        assert messages_different_passwords == "The new password and confirmation password do not match.", "Not messages 'The new password and confirmation password do not match.'"
+
+    def verification_fields_old_password_empty_ones(self):
+        messages_fields_old_password_empty_ones = self.browser.find_element(
+            *ChangepasswordPageLocators.MESSAGE_OLD_PASSWORD_IS_REQUIRED_LINK).text
+        assert messages_fields_old_password_empty_ones == "Old password is required.", "Not messages 'Old password is required.'"
+
+    def verification_fields_new_password_empty_ones(self):
+        messages_fields_new_password_empty_ones = self.browser.find_element(
+            *ChangepasswordPageLocators.MESSAGE_PASSWORD_IS_REQUIRED_LINK).text
+        assert messages_fields_new_password_empty_ones == "New password is required.", "Not messages 'New password is required.'"
+
+    def verification_fields_confirm_password_empty_ones(self):
+        messages_fields_confirm_password_empty_ones = self.browser.find_element(
+            *ChangepasswordPageLocators.MESSAGE_CONFIRM_PASSWORD_IS_REQUIRED_LINK).text
+        assert messages_fields_confirm_password_empty_ones == "Password is required.", "Not messages 'Password is required.'"
+
     def enter_old_password_field(self, old_password):
         email_field = self.browser.find_element(*ChangepasswordPageLocators.OLD_PASSWORD_LINK)
         email_field.send_keys(old_password)

@@ -34,7 +34,7 @@ class ChangepasswordPageLocators():
     CHANGE_PASSWORD_BUTTON_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/input')
     MESSAGE_OLD_PASSWORD_DONT_MATCH_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[1]/div/ul/li')
     PASSWORD_CHANGE_MESSAGE_LINK = (By.CSS_SELECTOR, 'body > div.master-wrapper-page > div.master-wrapper-content > div.master-wrapper-main > div.center-2 > form > div > div.page-body > div.result')
-    MESSAGE_OLD_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/div/div[1]/span[2]/span')
-    MESSAGE_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/div/div[2]/span[2]/span')
-    MESSAGE_CONFIRM_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[3]/div/div[3]/span[2]/span')
+    MESSAGE_OLD_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div/div[1]/span[2]/span')
+    MESSAGE_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div/div[2]/span[2]/span')
+    MESSAGE_CONFIRM_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div/div[3]/span[2]/span')
 
