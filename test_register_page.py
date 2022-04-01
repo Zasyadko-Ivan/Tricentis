@@ -179,8 +179,8 @@ def test_user_registration_from_password_mismatch_and_confirm_password(browser):
 
 
 @pytest.mark.regression
-@pytest.mark.parametrize('email', ["Кирилица" + "@fakemail.org",
-                                  str(time.time()) + "@нучто.нибудь",
+@pytest.mark.parametrize('email', [pytest.param("Кирилица" + "@fakemail.org", marks=pytest.mark.xfail),
+                                  pytest.param(str(time.time()) + "@нучто.нибудь", marks=pytest.mark.xfail),
                                   'prostotak'
                                   'jfjdk jh@fakemail.org'])
 def test_registration_of_a_new_user_different_not_valid_email(browser, email):
@@ -199,9 +199,9 @@ def test_registration_of_a_new_user_different_not_valid_email(browser, email):
 
 
 @pytest.mark.regression
-@pytest.mark.parametrize('password', ["Кирилицфаа",
-                                  '123  45fhga',
-                                  'jdsfjt#usdfj@t'])
+@pytest.mark.parametrize('password', [pytest.param('Кирилицфаа', marks=pytest.mark.xfail),
+                                  pytest.param('123  45fhga', marks=pytest.mark.xfail),
+                                  pytest.param('jdsfjt#usdfj@t', marks=pytest.mark.xfail), '123d'])
 def test_registration_of_a_new_user_different_not_valid_password(browser, password):
     browser.implicitly_wait(5)
     f_name = "Ivan"

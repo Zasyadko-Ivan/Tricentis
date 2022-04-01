@@ -15,6 +15,10 @@ class ChangepasswordPage(BasePage):
         messages_password_change = self.browser.find_element(*ChangepasswordPageLocators.PASSWORD_CHANGE_MESSAGE_LINK).text
         assert messages_password_change == "Password was changed", "Not messages 'Password was changed'"
 
+    def verification_not_password_changed(self):
+        assert self.is_not_element_present(*ChangepasswordPageLocators.PASSWORD_CHANGE_MESSAGE_LINK), \
+            "'Password was changed' message is presented, but should not be"
+
     def enter_old_password_field(self, old_password):
         email_field = self.browser.find_element(*ChangepasswordPageLocators.OLD_PASSWORD_LINK)
         email_field.send_keys(old_password)
@@ -27,5 +31,5 @@ class ChangepasswordPage(BasePage):
         email_field = self.browser.find_element(*ChangepasswordPageLocators.CONFIRM_PASSWORD_LINK)
         email_field.send_keys(confirm_password)
 
-        
+
 

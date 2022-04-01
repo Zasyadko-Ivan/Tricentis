@@ -7,8 +7,8 @@ link_log = "http://demowebshop.tricentis.com/login"
 
 @pytest.mark.smoke
 def test_successful_login(browser):
-    email = "привет234@g1mail.com"
-    password = "привет234@g1mail.com"
+    email = "Test_user1@user.com"
+    password = "Test_user"
     page = LoginPage(browser, link_log)
     page.open()
     page.enter_email_field(email)

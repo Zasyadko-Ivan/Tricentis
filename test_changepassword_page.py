@@ -37,7 +37,8 @@ class TestCreatedUserHeLoggedIn():
             page.verification_log_in()
             page.verification_login_failed()
 
-        def test_successful_login_new_user(self, browser, setup):
+        @pytest.mark.smoke
+        def test_successful_change_password_new_user(self, browser, setup):
             page = ChangepasswordPage(browser, link_chang)
             page.open()
             password = "Heznai1"
@@ -46,3 +47,17 @@ class TestCreatedUserHeLoggedIn():
             page.enter_confirm_password_field(password)
             page.click_button_change_password()
             page.verification_password_changed()
+
+        @pytest.mark.parametrize('password', ["",
+                                              pytest.param('123  45  fhg', marks=pytest.mark.xfail), '12fg',
+                                              pytest.param('как_бы_тоже_должен_быть_баг', marks=pytest.mark.xfail)])
+        def test_not_valid_change_password_new_user(self, browser, setup,password):
+            page = ChangepasswordPage(browser, link_chang)
+            page.open()
+            page.enter_old_password_field(setup[1])
+            page.enter_new_password_field(password)
+            page.enter_confirm_password_field(password)
+            page.click_button_change_password()
+            time.sleep(4)
+            page.verification_not_password_changed()
+
