@@ -20,6 +20,8 @@ def test_successful_registration_of_a_new_user(browser):
     page.click_button_register()
     page.should_not_be_verification_not_entered_email_already_exists()
     page.verification_of_successful_registration()
+    page.verification_register_completed()
+    page.verification_successful_login(email)
 
 
 @pytest.mark.regression
@@ -39,6 +41,8 @@ def test_successful_registration_of_a_new_user_different_email(browser, email):
     page.click_button_register()
     page.should_not_be_verification_not_entered_email_already_exists()
     page.verification_of_successful_registration()
+    page.verification_register_completed()
+    page.verification_successful_login(email)
 
 
 @pytest.mark.regression
@@ -58,6 +62,8 @@ def test_successful_registration_of_a_new_user_different_password(browser, passw
     page.click_button_register()
     page.should_not_be_verification_not_entered_email_already_exists()
     page.verification_of_successful_registration()
+    page.verification_register_completed()
+    page.verification_successful_login(email)
 
 
 def test_to_check_the_suggestions_to_fill_in(browser):
@@ -81,6 +87,7 @@ def test_to_check_the_suggestions_to_fill_in(browser):
     page.should_not_be_verification_not_entered_email()
     page.should_not_be_verification_not_entered_password()
     page.should_not_be_verification_not_entered_confirm_password()
+    page.verification_not_successful_login()
 
 
 def test_user_registration_without_first_name(browser):
@@ -97,6 +104,8 @@ def test_user_registration_without_first_name(browser):
     page.click_button_register()
     page.verification_not_entered_first_name()
     page.should_not_be_verification_of_successful_registration()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 def test_user_registration_without_last_name(browser):
@@ -113,6 +122,8 @@ def test_user_registration_without_last_name(browser):
     page.click_button_register()
     page.verification_not_entered_last_name()
     page.should_not_be_verification_of_successful_registration()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 def test_user_registration_without_email(browser):
@@ -129,6 +140,8 @@ def test_user_registration_without_email(browser):
     page.click_button_register()
     page.verification_not_entered_email()
     page.should_not_be_verification_of_successful_registration()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 def test_user_registration_without_password(browser):
@@ -145,6 +158,8 @@ def test_user_registration_without_password(browser):
     page.click_button_register()
     page.verification_not_entered_password()
     page.should_not_be_verification_of_successful_registration()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 def test_user_registration_without_confirm_password(browser):
@@ -161,6 +176,8 @@ def test_user_registration_without_confirm_password(browser):
     page.click_button_register()
     page.verification_not_entered_confirm_password()
     page.should_not_be_verification_of_successful_registration()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 def test_user_registration_from_password_mismatch_and_confirm_password(browser):
@@ -176,6 +193,8 @@ def test_user_registration_from_password_mismatch_and_confirm_password(browser):
     page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
     page.click_button_register()
     page.should_be_a_message_about_a_password_mismatch_and_confirm_password()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 @pytest.mark.regression
@@ -196,6 +215,8 @@ def test_registration_of_a_new_user_different_not_valid_email(browser, email):
     page.click_button_register()
     page.should_not_be_verification_not_entered_email_already_exists()
     page.verification_wrong_email()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 @pytest.mark.regression
@@ -215,6 +236,8 @@ def test_registration_of_a_new_user_different_not_valid_password(browser, passwo
     page.click_button_register()
     page.should_not_be_verification_not_entered_email_already_exists()
     page.should_not_be_verification_of_successful_registration()
+    page.should_not_verification_register_completed()
+    page.verification_not_successful_login()
 
 
 

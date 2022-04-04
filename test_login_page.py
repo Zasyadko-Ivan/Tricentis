@@ -18,6 +18,7 @@ def test_successful_login(browser):
     page.verification_email()
     page.verification_log_in()
     page.verification_login_failed()
+    page.verification_successful_login(email)
 
 
 class TestCreatedUserHeLoggedIn():
@@ -33,6 +34,8 @@ class TestCreatedUserHeLoggedIn():
         page.choose_gender_male()
         page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
         page.click_button_register()
+        page.verification_register_completed()
+        page.click_button_log_out()
         return email, password
 
     def test_successful_login_new_user(self, browser, setup):
@@ -44,6 +47,7 @@ class TestCreatedUserHeLoggedIn():
         page.verification_email()
         page.verification_log_in()
         page.verification_login_failed()
+        page.verification_successful_login(setup[0])
 
     def test_login_not_non_existent_password(self, browser, setup):
         page = LoginPage(browser, link_log)
@@ -55,6 +59,7 @@ class TestCreatedUserHeLoggedIn():
         page.click_button_log_in()
         page.verification_email()
         page.verification_non_existent_password()
+        page.verification_not_successful_login()
 
 
 def test_login_not_non_existent_email(browser):
@@ -66,4 +71,5 @@ def test_login_not_non_existent_email(browser):
     page.enter_password_field(password)
     page.click_button_log_in()
     page.verification_non_existent_login()
+    page.verification_not_successful_login()
 

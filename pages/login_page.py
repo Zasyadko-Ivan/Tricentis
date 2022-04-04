@@ -35,3 +35,12 @@ class LoginPage(BasePage):
         assert self.is_not_element_present(*LoginPageLocators.MESSAGE_NOT_VALID_EMAIL_LINK), \
             "Please enter a valid email address."
 
+    def verification_successful_login(self, email):
+        email_login = email
+        messages_email_login = self.browser.find_element(*LoginPageLocators.LOGIN_COMPLETED_LINK).text
+        assert messages_email_login == email_login, "Not login"
+
+    def verification_not_successful_login(self):
+        messages_not_login = self.browser.find_element(*LoginPageLocators.LOGIN_COMPLETED_LINK).text
+        assert messages_not_login == "Register", "Login"
+

@@ -47,6 +47,10 @@ class RegisterPage(BasePage):
         button_register = self.browser.find_element(*RegisterPageLocators.BUTTON_REGISTER_LINK)
         button_register.click()
 
+    def click_button_log_out(self):
+        button_log_out = self.browser.find_element(*RegisterPageLocators.BUTTON_LOG_OUT_LINK)
+        button_log_out.click()
+
     def verification_of_successful_registration(self):
         messages_of_successful_registration = self.browser.find_element(*RegisterPageLocators.NOTIFICATION_OF_SUCCESSFUL_REGISTRATION).text
         assert messages_of_successful_registration == "Your registration completed", "Your registration not complete"
@@ -106,6 +110,24 @@ class RegisterPage(BasePage):
     def should_be_a_message_about_a_password_mismatch_and_confirm_password(self):
         messages_about_a_password_mismatch_and_confirm_password = self.browser.find_element(*RegisterPageLocators.NOT_ENTERED_CONFIRM_PASSWORD_LINK).text
         assert messages_about_a_password_mismatch_and_confirm_password == "The password and confirmation password do not match.", "Not messages 'The password and confirmation password do not match'"
+
+    def verification_register_completed(self):
+        messages_register_completed = self.browser.find_element(
+            *RegisterPageLocators.REGISTER_COMPLETED_LINK).text
+        assert messages_register_completed == "Your registration completed", "Not messages 'No customer account found'"
+
+    def should_not_verification_register_completed(self):
+        assert self.is_not_element_present(*RegisterPageLocators.REGISTER_COMPLETED_LINK), \
+            "'Your registration completed' message is presented, but should not be"
+
+    def verification_successful_login(self, email):
+        email_login = email
+        messages_email_login = self.browser.find_element(*RegisterPageLocators.LOGIN_COMPLETED_LINK).text
+        assert messages_email_login == email_login, "Not login"
+
+    def verification_not_successful_login(self):
+        messages_not_login = self.browser.find_element(*RegisterPageLocators.LOGIN_COMPLETED_LINK).text
+        assert messages_not_login == "Register", "Login"
 
 
 

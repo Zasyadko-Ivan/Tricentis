@@ -23,6 +23,8 @@ class TestCreatedUserHeLoggedIn():
         page.choose_gender_male()
         page.fill_in_the_main_registration_fields(f_name, l_name, email, password, confirm_password)
         page.click_button_register()
+        page.verification_register_completed()
+        page.click_button_log_out()
         return email, password
 
     class TestLoginUser():
@@ -36,6 +38,7 @@ class TestCreatedUserHeLoggedIn():
             page.verification_email()
             page.verification_log_in()
             page.verification_login_failed()
+            page.verification_successful_login(setup[0])
 
         @pytest.mark.smoke
         def test_successful_change_password_new_user(self, browser, setup):
@@ -78,6 +81,7 @@ class TestCreatedUserHeLoggedIn():
             page.enter_confirm_password_field("password1")
             page.click_button_change_password()
             page.verification_enter_different_passwords()
+            page.verification_not_password_changed()
 
         def test_message_fields_password_empty_ones(self, browser, setup):
             page = ChangepasswordPage(browser, link_chang)
@@ -89,4 +93,5 @@ class TestCreatedUserHeLoggedIn():
             page.verification_fields_old_password_empty_ones()
             page.verification_fields_new_password_empty_ones()
             page.verification_fields_confirm_password_empty_ones()
+            page.verification_not_password_changed()
 

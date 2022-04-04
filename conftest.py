@@ -6,7 +6,7 @@ firefox_link = "driver/geckodriver/geckodriver"
 
 
 def pytest_addoption(parser):
-    parser.addoption('--browser_name', action='store', default=None,
+    parser.addoption('--browser_name', action='store', default='chrome',
                      help="Choose browser: chrome or firefox")
     parser.addoption('--headless', action='store', default='no',
                      help="Choose headless mod")
@@ -16,7 +16,6 @@ def pytest_addoption(parser):
 def browser(request):
     browser_name = request.config.getoption("browser_name")
     headless = request.config.getoption("headless")
-    browser = None
     if browser_name == "chrome" and headless == "no":
         print("\nstart chrome browser for test..")
         browser = webdriver.Chrome(executable_path=chrome_link)
@@ -31,8 +30,6 @@ def browser(request):
         options = webdriver.FirefoxOptions()
         options.add_argument("--headless")
         browser = webdriver.Firefox(options=options, executable_path=firefox_link)
-    else:
-        raise pytest.UsageError("--browser_name should be chrome or firefox")
     yield browser
     print("\nquit browser..")
     browser.quit()
