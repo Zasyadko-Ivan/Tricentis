@@ -47,6 +47,11 @@ class ChangepasswordPageLocators():
 
 class ProductPageLocators():
     BUTTON_ADD_TO_CART_LINK = (By.XPATH, '//*[@class="button-1 add-to-cart-button"]')
+    NAME_PRODUCT_LINK = (By.XPATH, '//*[@id="product-details-form"]/div/div[1]/div[2]/div[1]/h1')
+    PRICE_PRODUCT_LINK = (By.XPATH, '//*[@id="product-details-form"]/div/div[1]/div[2]/div[6]/div[2]/span')
+    IMG_PRODUCT_LINK = (By.XPATH, '//*[@id="main-product-img-13"]')
+    MESSAGE_ADDED_CART_LINK = (By.XPATH, '//*[@id="bar-notification"]/p')
+
 
 
 class ProductListPageLocators():
@@ -58,7 +63,7 @@ class ProductListPageLocators():
     BUTTON_SHOPPING_CART_LINK = (By.XPATH, '//*[@id="topcartlink"]/a/span[1]')
     MESSAGE_ADDED_CART_LINK = (By.XPATH, '//*[@id="bar-notification"]/p')
     BUTTON_SHOPPING_CART_MESSAGE_ADDED_CART_LINK = (By.XPATH, '//*[@id="bar-notification"]/p/a')
-
+    LINK_IN_PRODUCT_LINK = (By.XPATH, '//div[@class="item-box"][' + r + ']/div/div[1]/a')
 
 class CartPageLocators():
     NAME_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[3]/a')

@@ -1,11 +1,11 @@
 import time
 from .pages.login_page import LoginPage
 from .pages.register_page import RegisterPage
-from .pages.product_list_page import ProductListPage
+from .pages.product_page import ProductPage
 
 import pytest
 
-link_book = 'http://demowebshop.tricentis.com/books'
+link_book = 'http://demowebshop.tricentis.com/computing-and-internet'
 link_log = "http://demowebshop.tricentis.com/login"
 link_reg = 'http://demowebshop.tricentis.com/register'
 
@@ -41,31 +41,33 @@ class TestCreatedUserHeLoggedIn():
             page.verification_successful_login(setup[0])
 
         def test_add_product_logged_in(self, browser):
-            page = ProductListPage(browser, link_book)
+            page = ProductPage(browser, link_book)
             page.open()
             page.availability_check_button_add_to_cart()
             page.click_button_add_to_cart()
-            page.verification_added_product()
             time.sleep(3)
+            page.verification_added_product()
+
 
         def test_verification_added_product_logged_in(self, browser):
-            page = ProductListPage(browser, link_book)
+            page = ProductPage(browser, link_book)
             page.open()
             page.availability_check_button_add_to_cart()
             page.verification_added_correct_product()
 
 
 def test_add_product_not_logged_in(browser):
-    page = ProductListPage(browser, link_book)
+    page = ProductPage(browser, link_book)
     page.open()
     page.availability_check_button_add_to_cart()
     page.click_button_add_to_cart()
-    page.verification_added_product()
     time.sleep(3)
+    page.verification_added_product()
+
 
 
 def test_verification_added_product_not_logged_in(browser):
-    page = ProductListPage(browser, link_book)
+    page = ProductPage(browser, link_book)
     page.open()
     page.availability_check_button_add_to_cart()
     page.verification_added_correct_product()
