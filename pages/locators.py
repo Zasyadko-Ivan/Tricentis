@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import random
 
 
 class RegisterPageLocators():
@@ -43,3 +44,23 @@ class ChangepasswordPageLocators():
     MESSAGE_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div/div[2]/span[2]/span')
     MESSAGE_CONFIRM_PASSWORD_IS_REQUIRED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div[2]/form/div/div[2]/div[2]/div/div[3]/span[2]/span')
 
+
+class ProductPageLocators():
+    BUTTON_ADD_TO_CART_LINK = (By.XPATH, '//*[@class="button-1 add-to-cart-button"]')
+
+
+class ProductListPageLocators():
+    r = "5"
+    BUTTON_ADD_TO_CART_LINK = (By.XPATH, '//div[@class="item-box"][' + r + ']/div/div[2]/div[3]/div[2]/input[@class="button-2 product-box-add-to-cart-button"]')
+    NAME_PRODUCT_LINK = (By.XPATH, '//div[@class="item-box"][' + r + ']/div/div[2]/h2/a')
+    PRICE_PRODUCT_LINK = (By.XPATH, '//div[@class="item-box"][' + r + ']/div/div[2]/div[3]/div[1]/span[2]')
+    IMG_PRODUCT_LINK = (By.XPATH, '//div[@class="item-box"][' + r + ']/div/div[1]/a/img')
+    BUTTON_SHOPPING_CART_LINK = (By.XPATH, '//*[@id="topcartlink"]/a/span[1]')
+    MESSAGE_ADDED_CART_LINK = (By.XPATH, '//*[@id="bar-notification"]/p')
+    BUTTON_SHOPPING_CART_MESSAGE_ADDED_CART_LINK = (By.XPATH, '//*[@id="bar-notification"]/p/a')
+
+
+class CartPageLocators():
+    NAME_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[3]/a')
+    PRICE_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[4]/span[2]')
+    IMG_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[2]/img')
