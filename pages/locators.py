@@ -73,7 +73,27 @@ class CartPageLocators():
     TOTAL_LINK = (By.XPATH,'/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[6]/span[2]')
     BUTTON_UPDATE_SHOPPING_CART = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[1]/div/input[1]')
     СHECKBOX_I_AGREE_TO_THE_TERMS_LINK = (By.XPATH, '//*[@id="termsofservice"]')
-    BUTTON_CHECKOUT_LINK = (By.XPATH, '//*[@id="checkout"]/font/font')
+    BUTTON_CHECKOUT_LINK = (By.XPATH, '//*[@id="checkout"]')
     MESSAGE_YOU_CART_IS_EMPTY_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div[2]/div[2]/div')
+
+class OnepagecheckoutPageLocators():
+    FIRST_NAME_LINK = (By.XPATH, '//*[@id="BillingNewAddress_FirstName"]')
+    LAST_NAME_LINK = (By.XPATH, '//*[@id="BillingNewAddress_LastName"]')
+    EMAIL_LINK = (By.XPATH, '//*[@id="BillingNewAddress_Email"]')
+    COMPANY_LINK = (By.XPATH, '//*[@id="BillingNewAddress_Company"]')
+    COUNTRY_LINK = (By.XPATH, '//*[@id="BillingNewAddress_CountryId"]')
+    STATE_LINK = (By.XPATH, '//*[@id="BillingNewAddress_StateProvinceId"]')
+    CITY_LINK = (By.XPATH, '//*[@id="BillingNewAddress_City"]')
+    ADDRESS_1_LINK = (By.XPATH, '//*[@id="BillingNewAddress_Address1"]')
+    ADDRESS_2_LINK = (By.XPATH, '//*[@id="BillingNewAddress_Address2"]')
+    ZIP_CODE_LINK = (By.XPATH, '//*[@id="BillingNewAddress_ZipPostalCode"]')
+    PHONE_NUMBER_LINK = (By.XPATH, '//*[@id="BillingNewAddress_PhoneNumber"]')
+    FAX_NUMBER_LINK = (By.XPATH, '//*[@id="BillingNewAddress_FaxNumber"]')
+    BUTTON_CONTINUE = (By.XPATH, '//*[@id="billing-buttons-container"]/input')
+
+
+
+
+
 
 

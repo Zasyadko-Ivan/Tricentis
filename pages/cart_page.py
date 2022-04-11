@@ -44,3 +44,5 @@ class CartPage(BasePage):
         message_you_cart_empty = self.browser.find_element(*CartPageLocators.MESSAGE_YOU_CART_IS_EMPTY_LINK).text
         assert message_you_cart_empty == "Your Shopping Cart is empty!", "Not messages 'Your Shopping Cart is empty!'"
 
+
+
