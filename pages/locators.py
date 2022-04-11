@@ -74,5 +74,6 @@ class CartPageLocators():
     BUTTON_UPDATE_SHOPPING_CART = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[1]/div/input[1]')
     СHECKBOX_I_AGREE_TO_THE_TERMS_LINK = (By.XPATH, '//*[@id="termsofservice"]')
     BUTTON_CHECKOUT_LINK = (By.XPATH, '//*[@id="checkout"]/font/font')
+    MESSAGE_YOU_CART_IS_EMPTY_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div[2]/div[2]/div')
 
 
