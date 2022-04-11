@@ -69,3 +69,10 @@ class CartPageLocators():
     NAME_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[3]/a')
     PRICE_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[4]/span[2]')
     IMG_PRODUCT_IN_CART_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[2]/img')
+    QTY_FIELD_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[5]/input')
+    TOTAL_LINK = (By.XPATH,'/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/table/tbody/tr/td[6]/span[2]')
+    BUTTON_UPDATE_SHOPPING_CART = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/form/div[1]/div/input[1]')
+    СHECKBOX_I_AGREE_TO_THE_TERMS_LINK = (By.XPATH, '//*[@id="termsofservice"]')
+    BUTTON_CHECKOUT_LINK = (By.XPATH, '//*[@id="checkout"]/font/font')
+
+
