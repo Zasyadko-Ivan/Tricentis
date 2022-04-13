@@ -4,8 +4,28 @@ from .base_page import BasePage
 
 
 class OnepagecheckoutPage(BasePage):
-    def click_button_continue(self):
-        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONTINUE)
+    def click_button_continue_billing_address(self):
+        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONTINUE_BILLING_ADDRESS_LINK)
+        button_continue.click()
+
+    def click_button_continue_shipping_address(self):
+        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONTINUE_SHIPPING_ADDRESS_LINK)
+        button_continue.click()
+
+    def click_button_continue_shipping_method(self):
+        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONTINUE_SHIPPING_METHOD_LINK)
+        button_continue.click()
+
+    def click_button_continue_payment_method(self):
+        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONTINUE_PAYMENT_METHOD_LINK)
+        button_continue.click()
+
+    def click_button_continue_payment_info(self):
+        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONTINUE_PAYMENT_INFO_LINK)
+        button_continue.click()
+
+    def click_button_continue_confirm_order(self):
+        button_continue = self.browser.find_element(*OnepagecheckoutPageLocators.BUTTON_CONFIRM_ORDER_LINK)
         button_continue.click()
 
     def enter_first_name_field(self, f_name):
@@ -56,5 +76,12 @@ class OnepagecheckoutPage(BasePage):
         fax_number_field = self.browser.find_element(*OnepagecheckoutPageLocators.FAX_NUMBER_LINK)
         fax_number_field.send_keys(fax_number)
 
+    def verification_payment_method_cod(self):
+        message_payment_method_cod = self.browser.find_element(*OnepagecheckoutPageLocators.MESSAGE_PAYMENT_INFO_LINK).text
+        assert message_payment_method_cod == "You will pay by COD", "Not messages 'You will pay by COD'"
+
+    def verification_order_has_been_placed(self):
+        message_order_has_been_placed = self.browser.find_element(*OnepagecheckoutPageLocators.MASSAGE_ORDER_HAS_BEEN_PLACED_LINK).text
+        assert message_order_has_been_placed == "Your order has been successfully processed!", "Not messages 'Your order has been successfully processed!'"
 
 

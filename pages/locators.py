@@ -89,7 +89,28 @@ class OnepagecheckoutPageLocators():
     ZIP_CODE_LINK = (By.XPATH, '//*[@id="BillingNewAddress_ZipPostalCode"]')
     PHONE_NUMBER_LINK = (By.XPATH, '//*[@id="BillingNewAddress_PhoneNumber"]')
     FAX_NUMBER_LINK = (By.XPATH, '//*[@id="BillingNewAddress_FaxNumber"]')
-    BUTTON_CONTINUE = (By.XPATH, '//*[@id="billing-buttons-container"]/input')
+    BUTTON_CONTINUE_BILLING_ADDRESS_LINK = (By.XPATH, '//*[@id="billing-buttons-container"]/input')
+    BUTTON_CONTINUE_SHIPPING_ADDRESS_LINK = (By.XPATH, '//*[@id="shipping-buttons-container"]/input')
+    BUTTON_CONTINUE_SHIPPING_METHOD_LINK = (By.XPATH, '//*[@id="shipping-method-buttons-container"]/input')
+    BUTTON_CONTINUE_PAYMENT_METHOD_LINK = (By.XPATH, '//*[@id="payment-method-buttons-container"]/input')
+    BUTTON_CONTINUE_PAYMENT_INFO_LINK = (By.XPATH, '//*[@id="payment-info-buttons-container"]/input')
+    BUTTON_CONFIRM_ORDER_LINK = (By.XPATH, '//*[@id="confirm-order-buttons-container"]/input')
+    IN_STORE_PICKUP_LINK = (By.XPATH, '//*[@id="PickUpInStore"]')
+    SHIPPING_METHOD_GROUND_LINK = (By.XPATH, '//*[@id="shippingoption_0"]')
+    SHIPPING_METHOD_NEXT_DAY_AIR_LINK = (By.XPATH, '//*[@id="shippingoption_1"]')
+    SHIPPING_METHOD_SECOND_DAY_AIR_LINK = (By.XPATH, '//*[@id="shippingoption_2"]')
+    PAYMENT_METHOD_COD_LINK = (By.XPATH, '//*[@id="paymentmethod_0"]')
+    PAYMENT_METHOD_CHECK_LINK = (By.XPATH, '//*[@id="paymentmethod_1"]')
+    PAYMENT_METHOD_CREDIT_LINK = (By.XPATH, '//*[@id="paymentmethod_2"]')
+    PAYMENT_METHOD_PURCHASE_ORDER_LINK = (By.XPATH, '//*[@id="paymentmethod_3"]')
+    MESSAGE_PAYMENT_INFO_LINK = (By.XPATH, '//*[@id="checkout-payment-info-load"]/div/div/div[1]/table/tbody/tr/td/p')
+    MASSAGE_ORDER_HAS_BEEN_PLACED_LINK = (By.XPATH, '/html/body/div[4]/div[1]/div[4]/div/div/div[2]/div/div[1]/strong')
+
+
+
+
+
+
 
 
 

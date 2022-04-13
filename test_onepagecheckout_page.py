@@ -62,6 +62,7 @@ class TestCreatedUserHeLoggedIn():
                 def test_1(self, browser):
                     page = OnepagecheckoutPage(browser, link_one)
                     page.open()
+                    browser.implicitly_wait(5)
                     page.enter_company_field('OOO Checkout')
                     page.enter_country_field('66')
                     page.enter_city_field("Saint Petersburg")
@@ -70,9 +71,16 @@ class TestCreatedUserHeLoggedIn():
                     page.enter_zip_code_field('01204756')
                     page.enter_phone_number_field('8800555355')
                     page.enter_fax_number_field('82735968')
-                    time.sleep(2)
-                    page.click_button_continue()
-                    time.sleep(3)
+                    page.click_button_continue_billing_address()
+                    page.click_button_continue_shipping_address()
+                    page.click_button_continue_shipping_method()
+                    page.click_button_continue_payment_method()
+                    page.verification_payment_method_cod()
+                    page.click_button_continue_payment_info()
+                    page.click_button_continue_confirm_order()
+                    page.verification_order_has_been_placed()
+
+
 
 
 
